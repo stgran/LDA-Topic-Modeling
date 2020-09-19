@@ -1,12 +1,17 @@
 # lda_topic_modeling
 
 ## Files
+### python folder
 lda_topic_modeling.py  
+web_of_science_data.py  
+
+### jupyter_notebook folder
 lda_topic_modeling.ipynb  
+web_of_science_data.ipynb  
 
 ## Description
-Both files (the Python file and the Jupyter Notebook) are the same code.  
-These files contain a Python class that:  
+Both folders (the python folder and the jupyter_notebook) contain the same code.  
+The lda_topic_modeling files contain a Python class that:  
 - imports text data
 - preprocesses the data
 - runs a topic modeling model on the data using Latent Dirichlet Allocation
@@ -24,19 +29,27 @@ By analyzing the prevalence of different topics over the years for one country, 
 
 This can also be done for all patents (regardless of country or time frame).  
 
+The web_of_science_data files contain code that concatenates data from seven .txt tab-delimited files.  
+
+Web of Science only allowed me to export 500 patents at a time. There were 3,475 for my particular search terms ('facial recognition') so I exported seven total files of patent data. This file quickly and easily combines the seven data files into one file. It also isolates and renames the columns I am interested in.
+
+For my purposes, I am only interested in patent abstracts, countries of origin, and application dates.
+
+
 
 ## Input Data
 The input data is designed to be the results of a query from a patent database.  
 
 Spefically, one would query the database with specific search terms (related to the technological area of interest).  
 
-The database results would be saved as a .csv or .xlsx.
+The lda_topic_modeling code takes .csv files with columns named 'abstract', 'country', and 'date' as input.
 
 The data should, at least, consist of the following columns:
-- Patent abstract
-- Patent source country
-- Patent date
-The code is currently designed for database results from a specific database so the code would need to be adjusted to take input data from other databases.  
+- Patent abstract: 'abstract' should consist of strings of patent abstracts.
+- Patent source country: 'country', ideally, is a two-letter country code.
+- Patent date: 'date' can consist of day-month-year, month-year, or year data.
+
+The code is currently designed for database results from Web of Science, which I access through the Claremont Colleges Library. The code may need to be adjusted to take input data from other databases.  
 
 ## Required Packages
 - pandas
@@ -47,3 +60,4 @@ The code is currently designed for database results from a specific database so 
 - numpy
 - datetime
 - csv
+- glob
