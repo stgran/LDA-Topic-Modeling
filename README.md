@@ -9,6 +9,8 @@ web_of_science_data.py
 lda_topic_modeling.ipynb  
 web_of_science_data.ipynb  
 
+web_of_science_data.csv
+
 ## Description
 Both folders (the python folder and the jupyter_notebook) contain the same code.  
 The lda_topic_modeling files contain a Python class that:  
@@ -35,19 +37,22 @@ Web of Science only allowed me to export 500 patents at a time. There were 3,475
 
 For my purposes, I am only interested in patent abstracts, countries of origin, and application dates.
 
-
+web_of_science_data.csv contains the data I pulled from Web of Science. I originally pulled this data in seven separate files, and then I combined them using web_of_science_data.ipynb. This data file consists of four columns: 'abstract', 'country', 'date', 'month', and 'year'. 'date', 'month', and 'year' are repetitive but make it easier to use different date formats in the main code file.
 
 ## Input Data
 The input data is designed to be the results of a query from a patent database.  
 
 Spefically, one would query the database with specific search terms (related to the technological area of interest).  
 
-The lda_topic_modeling code takes .csv files with columns named 'abstract', 'country', and 'date' as input.
+The lda_topic_modeling code takes .csv files with columns named 'abstract', 'country', 'date', 'month', and 'year' as input.
 
 The data should, at least, consist of the following columns:
 - Patent abstract: 'abstract' should consist of strings of patent abstracts.
 - Patent source country: 'country', ideally, is a two-letter country code.
-- Patent date: 'date' can consist of day-month-year, month-year, or year data.
+- Patent date:
+  - 'date' consists of day-month-year dates.
+  - 'month' consists of month-year dates.
+  - 'year' consists of year dates.
 
 The code is currently designed for database results from Web of Science, which I access through the Claremont Colleges Library. The code may need to be adjusted to take input data from other databases.  
 
