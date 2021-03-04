@@ -142,7 +142,7 @@ class TopicModel():
         corpus_tfidf = tfidf[bow_corpus]
         
         # our model using Gensim
-        self.lda_model = LdaMulticore(corpus_tfidf, num_topics=num_topics, id2word=dictionary, passes=10, workers=2)
+        self.lda_model = LdaMulticore(corpus_tfidf, num_topics=num_topics, id2word=dictionary, passes=50, workers=2)
         
         # now we start building the dataframe we will visualize
         # build a key of topics and ids
